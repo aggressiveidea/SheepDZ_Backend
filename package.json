@@ -1,0 +1,33 @@
+{
+  "name": "sheepdz_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aggressiveidea/SheepDZ_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aggressiveidea/SheepDZ_Backend/issues"
+  },
+  "homepage": "https://github.com/aggressiveidea/SheepDZ_Backend#readme",
+  "description": "",
+  "dependencies": {
+    "D": "^1.0.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "zod": "^3.25.63"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.1",
+    "typescript": "^5.8.3"
+  }
+}

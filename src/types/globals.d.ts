@@ -21,6 +21,8 @@ export declare interface Sheep {
   weight: number
   age: number
   imageUrl?: string
+  health?: string 
+  statue?: string
 }
 
 export declare interface PointDeVente {

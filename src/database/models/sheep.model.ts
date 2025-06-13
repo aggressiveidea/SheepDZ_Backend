@@ -6,7 +6,6 @@ export const Sheepschema = new Schema<Sheep>({
         type: Number,
         required: true
     },
-
       race : {
         type: String,
         trim: true,
@@ -25,12 +24,18 @@ export const Sheepschema = new Schema<Sheep>({
         type: Number,
         required: true,
     },
+    health:{
+        type: String,
+        enum: ["good", "excelent", "sick"]
+    },
+    statue:{
+        type: String,
+        enums : ["available", "unavailable"],
+    },
     imageUrl:{
         type: String,
         required: true,
     }
-
-
 },
     {
      timestamps: true,

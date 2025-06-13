@@ -5,7 +5,7 @@ import UserRouter from './routers/User.router'
 import RDVRouter from './routers/RDV.router'
 import { connect } from "./database/db"
 import morgan from "morgan"
-
+import cors from 'cors'
 const app = express()
 const PORT = process.env.PORT 
 
@@ -16,7 +16,14 @@ connect().catch((error) => {
 
 app.use(express.json())
 app.use(morgan("dev"))
-
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,POST,PUT,DELETE,PATCH",
+    allowedHeaders: "Content-Type,Authorization",
+    credentials: true,
+  })
+);
 app.use("/api/auth", authRouter) 
 app.use('/api/center', PointDeVenteRouter )
 app.use('/api/user', UserRouter)

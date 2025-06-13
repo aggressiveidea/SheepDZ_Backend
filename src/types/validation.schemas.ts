@@ -1,6 +1,4 @@
 import { z } from "zod"
-
-
 export const RegisterSchema = z.object({
   email: z.string().email("Invalid email format"),
   password: z
@@ -25,6 +23,7 @@ export const sheepValidationSchema = z.object({
   origin: z.string().trim().min(1),
   weight: z.number(),
   age: z.number(),
+  health: z.enum(["good", "excelent", "sick"]),
   imageUrl: z.string().url(),
 });
 export const pointDeVenteValidationSchema = z.object({

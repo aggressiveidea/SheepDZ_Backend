@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appointment Confirmation</title>
+  <title>Appointment Information</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -54,22 +54,51 @@
       font-weight: bold;
       color: #4a6fa5;
     }
+    .status {
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+    .status-confirmed {
+      background-color: #4caf50;
+      color: white;
+    }
+    .status-cancelled {
+      background-color: #f44336;
+      color: white;
+    }
+    .status-completed {
+      background-color: #2196f3;
+      color: white;
+    }
+    .status-pending {
+      background-color: #ff9800;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>Appointment Confirmation</h1>
+    <h1>{{#if status}}Appointment Update{{else}}Appointment Confirmation{{/if}}</h1>
   </div>
   <div class="content">
     <p>Dear <span class="highlight">{{userName}}</span>,</p>
     
-    <p>We're pleased to confirm your appointment has been scheduled successfully.</p>
+    {{#if statusMessage}}
+      <p>{{statusMessage}}</p>
+    {{else}}
+      <p>We're pleased to confirm your appointment has been scheduled successfully.</p>
+    {{/if}}
     
     <div class="details">
       <h3>Appointment Details:</h3>
       <p><strong>Date and Time:</strong> {{formattedDate}}</p>
       <p><strong>Location:</strong> {{location}}</p>
       <p><strong>Point of Sale:</strong> {{pointDeVenteName}}</p>
+      {{#if status}}
+        <p><strong>Status:</strong> <span class="status status-{{status}}">{{status}}</span></p>
+      {{/if}}
     </div>
     
     <p>Please arrive 10 minutes before your scheduled appointment time. If you need to reschedule or cancel, please contact us at least 24 hours in advance.</p>

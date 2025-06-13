@@ -41,3 +41,11 @@ export declare interface UserRDV {
   createdAt?: Date
   updatedAt?: Date
 }
+
+export declare interface EmailTemplateData {
+  userName: string
+  formattedDate: string
+  location: string
+  pointDeVenteName: string
+  year: number
+}

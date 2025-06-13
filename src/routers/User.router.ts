@@ -9,4 +9,4 @@ router.get('/:id', authMiddleware.checkAdmin, UserController.getUserByID);
 router.put('/:id', authMiddleware.checkAdmin, UserController.updateUser);
 router.delete('/:id', authMiddleware.checkAdmin, UserController.deleteUser);
 
-export default router;
+export default router; 

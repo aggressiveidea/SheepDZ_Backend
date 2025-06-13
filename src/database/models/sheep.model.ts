@@ -35,7 +35,7 @@ export const Sheepschema = new Schema<Sheep>({
     imageUrl:{
         type: String,
         required: true,
-    }
+    },
 },
     {
      timestamps: true,

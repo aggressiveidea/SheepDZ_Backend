@@ -24,7 +24,16 @@ export class SheepService {
         throw new Error("Failed to get thar sheep");
       }
     }
-  
+    static async createDistCenter(sheepData:  Sheep): Promise<Sheep> {
+        try {
+          const newSheep = await sheepModel.create(sheepData)
+          return newSheep
+        } catch (error) {
+          console.error("Error creating sheep:", error)
+          throw new Error("Failed to create sheep")
+        }
+      }
+    
     static async UpdateSheep(id: string, data: Partial<Sheep>) {
       try {
         const updatedSheep = await sheepModel.findByIdAndUpdate(id, data);

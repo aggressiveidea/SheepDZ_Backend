@@ -9,6 +9,7 @@ export const RegisterSchema = z.object({
   lastName: z.string().min(1, "Last name is required").max(50, "Last name too long"),
   role: z.enum(["user", "admin"]).optional().default("user"),
   num_nat: z.number(),
+  address: z.string(),
   receiptUrl: z.string().url(),
 })
 
@@ -16,7 +17,7 @@ export const LoginSchema = z.object({
   email: z.string().email("invalid email format"),
   password: z.string().min(1, "password is required"),
 })
- 
+
 export const sheepValidationSchema = z.object({
   price: z.number(),
   race: z.string().trim().min(1),
@@ -25,12 +26,12 @@ export const sheepValidationSchema = z.object({
   age: z.number(),
   health: z.enum(["good", "excelent", "sick"]),
   imageUrl: z.string().url(),
-});
+})
 export const pointDeVenteValidationSchema = z.object({
   weather: z.string().min(1),
   location: z.string().trim().min(1),
   name: z.string().trim().min(1),
-});
+})
 export const RDVValidationSchema = z.object({
   clientId: z.string().min(1, "Client ID is required"),
   pointDeVenteId: z.string().optional(),
@@ -42,4 +43,15 @@ export const RDVValidationSchema = z.object({
   reason: z.string().max(500, "Reason too long").optional(),
   notes: z.string().max(1000, "Notes too long").optional(),
   reminderSent: z.boolean().optional(),
-});
+})
+export const RequestPasswordResetSchema = z.object({
+  email: z.string().email("Invalid email format"),
+})
+
+export const ResetPasswordSchema = z.object({
+  token: z.string().min(1, "Reset token is required"),
+  newPassword: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, "Password must contain uppercase, lowercase, and number"),
+})

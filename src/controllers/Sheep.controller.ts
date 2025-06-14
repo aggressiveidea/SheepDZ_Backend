@@ -44,6 +44,21 @@ export class SheepController{
           res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(errorResponse)
         }
       }
+       static async createSheep(req: Request, res: Response, next: NextFunction): Promise<void> {
+          const sheepData = req.body
+          try {
+            const createdSheep = await SheepService.createDistCenter(sheepData)
+            const SuccessResponse = new SuccessResponseUtil({
+              message: "sheep created successfully",
+              data: createdSheep,
+            })
+            res.status(StatusCodes.CREATED).json(SuccessResponse)
+          } catch (error) {
+            console.error("Error creating sheep:", error)
+            const errorResponse = new ErrorResponseUtil().setError("filed to create sheep")
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(errorResponse)
+          }
+        }
       static async updateSheep(req: Request, res: Response, next: NextFunction): Promise<void> {
         const sheepID: string = req.params.id
         const sheepData = req.body

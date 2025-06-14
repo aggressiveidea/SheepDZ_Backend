@@ -56,6 +56,7 @@ export class AuthController {
         userData.lastName,
         userData.role || "user",
         userData.num_nat,
+        userData.address,
         userData.receiptUrl,
       )
 

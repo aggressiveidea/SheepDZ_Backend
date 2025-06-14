@@ -1,5 +1,6 @@
 import {Schema, model} from 'mongoose';
 import {User} from '../../types/globals';
+import { request } from 'node:http';
 
 export const Userschema = new Schema<User>({
     email : {
@@ -32,6 +33,11 @@ export const Userschema = new Schema<User>({
     num_nat: {
         type: Number,
         required: true,
+    },
+    address:{
+      type: String,
+      required: true,
+      trim: true,
     },
       receiptUrl: {
         type: String,

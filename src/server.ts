@@ -3,6 +3,7 @@ import authRouter from "./routers/auth.router"
 import PointDeVenteRouter from './routers/PointDeVente.router'
 import UserRouter from './routers/User.router'
 import RDVRouter from './routers/RDV.router'
+import SheepRouter from './routers/Sheep.router'
 import { connect } from "./database/db"
 import morgan from "morgan"
 import cors from 'cors'
@@ -28,7 +29,7 @@ app.use("/api/auth", authRouter)
 app.use('/api/center', PointDeVenteRouter )
 app.use('/api/user', UserRouter)
 app.use('/api/rdv', RDVRouter)
-
+app.use('/api/sheep', SheepRouter)
 app.get("/health", (req, res) => {
   res.status(200).json({ message: "Server is running!" })
 })
@@ -39,4 +40,5 @@ app.listen(PORT, () => {
   console.log(`distribution centers API available at http://localhost:${PORT}/api/center`);
   console.log(`users API available at http://localhost:${PORT}/api/users`);
   console.log(`appointements API available at http://localhost:${PORT}/api/rdv`);
+   console.log(`sheeps API available at http://localhost:${PORT}/api/sheep`);
 })

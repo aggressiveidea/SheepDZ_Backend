@@ -9,8 +9,10 @@ export declare interface User {
   firstName: string
   lastName: string
   role: string
+  address: string
   createdAt?: Date
   updatedAt?: Date
+
 }
 
 export declare interface Sheep {
@@ -21,7 +23,7 @@ export declare interface Sheep {
   weight: number
   age: number
   imageUrl?: string
-  health?: string 
+  health?: string
   statue?: string
 }
 
